@@ -5,7 +5,7 @@
     <head>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="icon" type="image/png" href="imagens/etcfavicon.png" /><!--Usando faviconIcon na Aba do URL-->
+        <link rel="icon" type="image/png" href="" /><!--Usando faviconIcon na Aba do URL-->
         <link rel="stylesheet" type="text/css" href="css/estilo.css">
         <!-- Bootstrap -->
         
