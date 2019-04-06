@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Listar Clientes</title> 
+        
+    </head>
+    
+    <body>
+        
+        <div class="container">
+            
+        <?php
+        include_once './webcomplements.php';
+        
+        require_once '../dao/clienteDAO.php';
+        include '../js/funcaoData.php';
+
+        $clienteDAO = new ClienteDAO();
+        $clientes = $clienteDAO->getAllCliente();
+
+        echo "<table class='table table-bordered' align='center'>";
+        echo "<tr>";
+        echo "  <th>Nome</th>";
+        echo "  <th>CPF</th>";
+        echo "  <th>RG</th>";
+        echo "  <th>Sexo</th>";
+        echo "  <th>Data de Nascimento</th>";
+        echo "  <th>Endereço</th>";
+        echo "  <th>Excluir</th>";
+        echo "  <th>Alterar</th>";
+        echo "</tr>";
+
+
+        foreach ($clientes as $c) {
+            echo "<tr>";
+            echo "  <td>{$c["nome"]}</td>";
+            echo "  <td>{$c["cpf"]}</td>";
+            echo "  <td>{$c["rg"]}</td>";
+            echo "  <td>{$c["sexo"]}</td>";
+            echo "  <td>",dateUStoDateBR($c["datanascimento"]),"</td>";
+            echo "  <td>{$c["endereco"]}</td>";
+            echo "  <td><a href='../controller/excluirClienteByIdController.php?id={$c["idcliente"]}'>Excluir</a></td>";
+            echo "  <td><a href='formAlterarCliente.php?id={$c["idcliente"]}'>Alterar</a></td>";
+            echo "</tr>";
+        }
+
+        echo "</table>";
+        ?>
+            
+        </div>
+
+    </body>
+    
+</html>

@@ -1,26 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+
+<html>
+    
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <!-- Caso encontre outra keyword e queira adicionar para o projeto fique a vontade, keywords são para o sistema de procura do google ex: tecnico em informática, ele vai procurar 'tecnico' 'em' 'informatica' no seu banco de dados, tendo assim a oportunidade de ficar no topo da pesquisa. -->
-        <meta name="keywords" content="Emprego, TI, Estágio, Desenvolvedor, Manutenção, Técnico em informatica, Técnico em desenvolvimento de Sistemas, Analista, Desenvolvimento web, Desenvolvimento de Software, Oportunidade, Estágio em Informatica">
-        <!-- Descrição que fica logo abaixo do link principal no google. -->
-        <meta name="description" content="Empresa especializada em oportunidades de Estágio na área de Técnologia da Informação.">
         
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/mainCss.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" type="image/png" href="imagens/etcfavicon.png" /><!--Usando faviconIcon na Aba do URL-->
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <!-- Bootstrap -->
         
-        <!-- Scripts -->
-        <script type="text/javascript" src="js/script.js"></script>
         
-        <!-- Titulo -->
-        <title>AcheiTI - Estágios relacionados a area de informática</title>
+        <title>Login</title>
         
     </head>
+    
     <body>
-       
-    </body>
-
+        
+        <center>
+        <div id="divlogin">
+            <p id="logologin">
+                <img src="imagens/logoetc.png" alt="Logo"/>
+            </p>
+            <form action="controller/loginController.php" method="post" id="formlogin">
+                <table align="center">
+                    <tr>
+                        <td>Usuário:</td>
+                        <td><input type="text" name="usuario"/></td>
+                    </tr>
+                    <tr>
+                        <td>Senha:</td>
+                        <td><input type="password" name="senha"/></td>
+                    </tr>                
+                    <tr>                    
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="reset" value="Limpar"/>
+                            <input type="submit" value="Entrar"/>
+                        </td>
+                    </tr>                                                                
+                </table>
+            </form> 
+        </div>
+        </center>
+        
+    <center>
+        <?php
+        if (!empty($_GET["msg"])) {
+            echo "<div id='errorlogin'>", $_GET["msg"], "</div>";
+        }
+        ?>
+    </center>
+        
+    <?php
+        include './footer.php';
+    ?>
+        
+</body>
+    
 </html>
